@@ -1,0 +1,44 @@
+const prompt = require("prompt-sync")();
+
+var edades = [];
+var ciclo = 0;
+var suma = 0;
+var menores = 0;
+var mayores = 0;
+var adulto = 0;
+var edad_baja = 0;
+var edad_alta = 0;
+var promedio = 0;
+while (ciclo < 10){
+    let edad = prompt("Digitar edad: ");
+    if (isNaN(edad)){console.log("La información digitada no es numerica, por favor digite de nuevo la edad: ");}
+    else{
+    edad = parseInt(edad);
+    if (edad >= 1 && edad <= 120){
+    ciclo++;
+    suma = suma+edad;
+    edades.push(edad);
+    if(edad <= 17){
+        menores++;
+        if(edad_baja == 0 || edad_baja > edad){
+            edad_baja = edad;
+        }
+    }
+    if(edad >= 18 && edad <= 59){mayores++;}
+    if(edad >= 60 && edad <= 120){adulto++;
+    if(edad_alta < edad){
+        edad_alta = edad;}
+    }
+}
+else {console.log ("El rango de edad no corresponde, por favor digite de nuevo la edad: ")}
+}}
+promedio = suma/ciclo;
+console.log("\n");
+console.log("Grupo de edades: ", edades);
+console.log("Menores de edad: ", menores);
+console.log("Mayores de edad: ", mayores);
+console.log("Adultos Mayores: ", adulto);
+console.log("Edad más baja: ", edad_baja);
+console.log("Edad más alta: ", edad_alta);
+console.log("Promedio de edad: ", promedio);
+
